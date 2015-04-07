@@ -19,6 +19,8 @@
 
     		scope.header = 'Not Fixed';
 
+    		console.log(el);
+
 	        angular.element($window).bind('scroll', function () {
 
 	            // if (!scope.configuracaoCp)
@@ -30,16 +32,16 @@
 
 	            if (altura > elY) {
 
-	                if (el.children().hasClass("fix-this"))
+	                if (el.hasClass("fix-this"))
 	                    return;
 
-	                el.children().addClass("fix-this");
-	                // el.next("div").addClass("container-fix-this");
+	                el.addClass("fix-this");
+	                el.next().addClass("container-fix-this");
 
 	                scope.header = 'Fixed';
 	            } else {
-	                el.children().removeClass("fix-this");
-	                // el.next("div").removeClass("container-fix-this");
+	                el.removeClass("fix-this");
+	                el.next().removeClass("container-fix-this");
 
 	                scope.header = 'Not Fixed';
 	            }
